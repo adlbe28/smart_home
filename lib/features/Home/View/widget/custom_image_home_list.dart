@@ -12,13 +12,13 @@ class ImageHomeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 13),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Stack(
-          alignment: Alignment.centerLeft,
-          children: [
-            AspectRatio(
-                aspectRatio: MediaQuery.of(context).size.height * .000595,
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: AspectRatio(
+                aspectRatio: MediaQuery.of(context).size.height * .000695,
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -29,18 +29,18 @@ class ImageHomeList extends StatelessWidget {
                     ),
                   ),
                 )),
-            RotatedBox(
-              quarterTurns: -1,
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontFamily: "Frank_Ruhl_Libre",
-                  fontSize: MediaQuery.of(context).size.height * .075,
-                ),
+          ),
+          RotatedBox(
+            quarterTurns: -1,
+            child: Text(
+              text,
+              style: TextStyle(
+                fontFamily: "Frank_Ruhl_Libre",
+                fontSize: MediaQuery.of(context).size.height * .075,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
