@@ -23,36 +23,33 @@ class _CustomListHomeState extends State<CustomListHome> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .60,
-      child: AnimatedContainer(
-        duration: const Duration(seconds: 2),
-        child: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: pageController,
-                itemBuilder: (context, index) {
-                  return ImageHomeList(
-                    imagepath: ImageApp.listImage[index]["image"],
-                    text: ImageApp.listImage[index]["text"],
-                  );
-                },
-                onPageChanged: (value) {
-                  pageNumber = value;
-                  setState(() {});
-                },
-                clipBehavior: Clip.none,
-                itemCount: ImageApp.listImage.length,
-                scrollDirection: Axis.horizontal,
-              ),
+      child: Column(
+        children: [
+          Expanded(
+            child: PageView.builder(
+              controller: pageController,
+              itemBuilder: (context, index) {
+                return ImageHomeList(
+                  imagepath: ImageApp.listImage[index]["image"],
+                  text: ImageApp.listImage[index]["text"],
+                );
+              },
+              onPageChanged: (value) {
+                pageNumber = value;
+                setState(() {});
+              },
+              clipBehavior: Clip.none,
+              itemCount: ImageApp.listImage.length,
+              scrollDirection: Axis.horizontal,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomSlider(
-                listImageLength: ImageApp.listImage.length,
-                pageNumber: pageNumber)
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomSlider(
+              listImageLength: ImageApp.listImage.length,
+              pageNumber: pageNumber)
+        ],
       ),
     );
   }

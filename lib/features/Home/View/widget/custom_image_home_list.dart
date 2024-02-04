@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home/features/Home/View/widget/custom_stack_iamge_room.dart';
 
 class ImageHomeList extends StatelessWidget {
   const ImageHomeList({
@@ -12,36 +13,10 @@ class ImageHomeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 13),
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: AspectRatio(
-                aspectRatio: MediaQuery.of(context).size.height * .000695,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(imagepath),
-                      fit: BoxFit.fill,
-                      colorFilter: const ColorFilter.mode(
-                          Colors.black38, BlendMode.colorBurn),
-                    ),
-                  ),
-                )),
-          ),
-          RotatedBox(
-            quarterTurns: -1,
-            child: Text(
-              text,
-              style: TextStyle(
-                fontFamily: "Frank_Ruhl_Libre",
-                fontSize: MediaQuery.of(context).size.height * .075,
-              ),
-            ),
-          ),
-        ],
-      ),
+      child: AnimatedContainer(
+          duration: const Duration(seconds: 2),
+          curve: Curves.easeOutSine,
+          child: CustomStackImageRoom(imagepath: imagepath, text: text)),
     );
   }
 }
